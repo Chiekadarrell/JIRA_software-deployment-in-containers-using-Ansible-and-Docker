@@ -1,20 +1,21 @@
 # JIRA_software-deployment-in-containers-using-Ansible-and-Docker
 ![e194738a-a1d4-4932-b5b2-7049dde1007c](https://github.com/user-attachments/assets/fa08b432-3def-4197-bfab-ee6f33b7cf23)
 
-**1.** Launching 3 Amazon Linux 2 instances and naming them **“Ansible_Control”**, **“Worker_Node_1”** and **“Worker_Node_2”**. (The security group of Ansible_Control is configured to allow just SSH requests from a desired IP (e.g., my IP) address. The security group of the Worker_Node_1 and Worker_Node_2 is configured to allow SSH traffic from the Ansible_Control and SSH traffic from a desired IP (e.g., my IP).
+**1.** Launch 3 Amazon Linux 2 instances and name them **“Ansible_Control”**, **“Worker_Node_1”** and **“Worker_Node_2”**. (The security group of Ansible_Control is configured to allow just SSH requests from a desired IP (e.g., my IP) address. The security group of the Worker_Node_1 and Worker_Node_2 is configured to allow SSH traffic from the Ansible_Control and SSH traffic from a desired IP (e.g., my IP).
+
+![image](https://github.com/user-attachments/assets/8b6ac731-547b-44de-8e65-69e75a3dded9)
 
 ## Ansible security group inbound rule
-![image-20240717-192750 (1)](https://github.com/user-attachments/assets/6e465feb-a63b-41e8-9c98-4f2ed36a1574)
+![image](https://github.com/user-attachments/assets/8bb145af-7e8b-4192-bd98-778212c93206)
+
 
 ## Security Group inbound rules of Worker Nodes
-![image-20240717-193102](https://github.com/user-attachments/assets/4c815241-91c1-417d-a7ca-0cd4dccec07a)
+<img width="960" alt="Worker_Nodes_SG" src="https://github.com/user-attachments/assets/6b4ab1ab-8cce-4210-8a31-638fdda0a721" />
 
-## Created Instances
-![image-20240717-193325](https://github.com/user-attachments/assets/09a90b0e-fb51-4946-8c68-e320b45e2242)
 
 **2.** Login to 3 three instances using Git Bash
 
-![image-20240717-193457](https://github.com/user-attachments/assets/e2ae4bec-945f-444d-8148-90f63829042e)
+![image](https://github.com/user-attachments/assets/c0996cb6-9fab-4412-bfbd-ee55530abe62)
 
 To determine which Git Bash belongs to which node, rename the servers.
 - In each server, Switch as a root user
@@ -25,7 +26,8 @@ To determine which Git Bash belongs to which node, rename the servers.
   ```sh
   nano /etc/hostname
 
-![image-20240717-194643](https://github.com/user-attachments/assets/d5aa3bfc-3691-4cae-a19d-f8d4814ea04a)
+![image](https://github.com/user-attachments/assets/838fba96-292b-448d-8628-a59395cf4982)
+
 
 - Save the changes and reboot the servers
   ```sh
@@ -33,7 +35,8 @@ To determine which Git Bash belongs to which node, rename the servers.
 
 - Log into the instances again and you will realize that you can identify which Git bash belongs to which server
 
-![image-20240717-194927](https://github.com/user-attachments/assets/695fe011-e358-4735-aa18-783b1ffc1244)
+![image](https://github.com/user-attachments/assets/3fe8d76f-7320-4d5f-b7fc-3155d307f949)
+
 
 **3.** For all 3 servers create a common user called “ansible”, set a common password, and allow for “Password authentication”  using the following commands for all 3 servers.
   ```sh
