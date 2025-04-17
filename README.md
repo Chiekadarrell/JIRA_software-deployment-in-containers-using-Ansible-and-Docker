@@ -172,38 +172,47 @@ You will have something like the above picture
 
   output:
 
-  ![image-20240717-203501](https://github.com/user-attachments/assets/62fdb45f-1a61-4c02-a12c-eda636b18f62)
+ ![image](https://github.com/user-attachments/assets/2f1278d1-0c5b-4a16-ade8-dd92bc6bdd66)
+
 
 **10.** Creating a Load balancer to route traffic to the Worker Nodes.
 
 - Create a Load balancer Target Group. The target group protocol should be HTTP and port 8080 since in the docker-compose file, we created containers that are open on port 8080 and are mapped on port 8080 of worker nodes. Hit Next.
 
-![image-20240717-203740](https://github.com/user-attachments/assets/15cc65c2-cb2f-4ae8-8619-dcddd08fe440)
+![image](https://github.com/user-attachments/assets/1770f95a-cc89-4e86-b332-59dc3cd92219)
+
 
 - Select the worker nodes and “include as pending below” then create the target group.
 
-![image-20240717-203833](https://github.com/user-attachments/assets/ce2b756e-eb29-4029-b83a-def68932b505)
+![image](https://github.com/user-attachments/assets/b90f3d8d-3670-492e-8a51-cbeeadbe67ac)
+
 
 Create the Load balancer.
 
 - Choose Application Load balancer
 
-![image-20240717-204301](https://github.com/user-attachments/assets/41cc2383-dd3c-4c5e-a2c3-5b775b10e0ea)
+![image](https://github.com/user-attachments/assets/36e4559a-7ee0-4b24-9ac5-6fcc015b2c24)
+
 
 - Name the Load balancer and at the level of the Network setting, choose the desired VPC and all subnets.
-- Create a Security group that allows HTTPS and HTTPS traffic from anywhere.
-
-![image-20240717-204549](https://github.com/user-attachments/assets/4630a21b-3183-4963-aa66-8b9e78a009d3)
 
 - At the level of Listeners and Routing, choose an HTTP protocol listening from port 80, and pass the created target group. Then create the load balancer.
 
-![image-20240717-204707](https://github.com/user-attachments/assets/10931c1d-d044-4c73-9d82-660e8bfa82cd)
+![image](https://github.com/user-attachments/assets/b2eb9546-036d-48b2-9ad9-fdb8ef76c7a5)
+
+
+- Create a Security group that allows HTTPS and HTTPS traffic from anywhere.
+
+![image](https://github.com/user-attachments/assets/84b7a141-3861-4f0e-8ac9-409309f9c9ea)
+
+
 
 **11.** Testing
 
 - Edit the inbound rule of the worker nodes security group to accept HTTP and HTTPS traffic from the Load balancer security group.
 
-![image-20240718-083724](https://github.com/user-attachments/assets/136b14f0-f9eb-4e39-b0fc-734dfb363dec)
+![image](https://github.com/user-attachments/assets/082b57cf-f085-4c46-a8e7-cb620f869f86)
+
 
 - Copy the DNS of the load balancer and paste it on the Browser, you should see this.
 
