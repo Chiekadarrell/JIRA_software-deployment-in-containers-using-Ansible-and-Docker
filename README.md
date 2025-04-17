@@ -3,19 +3,23 @@
 
 **1.** Launch 3 Amazon Linux 2 instances and name them **“Ansible_Control”**, **“Worker_Node_1”** and **“Worker_Node_2”**. (The security group of Ansible_Control is configured to allow just SSH requests from a desired IP (e.g., my IP) address. The security group of the Worker_Node_1 and Worker_Node_2 is configured to allow SSH traffic from the Ansible_Control and SSH traffic from a desired IP (e.g., my IP).
 
-![image](https://github.com/user-attachments/assets/8b6ac731-547b-44de-8e65-69e75a3dded9)
+![image](https://github.com/user-attachments/assets/8eb3457d-36ff-4010-917e-afd96b8ddee6)
+
 
 ## Ansible security group inbound rule
-![image](https://github.com/user-attachments/assets/8bb145af-7e8b-4192-bd98-778212c93206)
+![image](https://github.com/user-attachments/assets/4612ec49-7fd5-45cc-94d4-de949cfa2fe6)
+
 
 
 ## Security Group inbound rules of Worker Nodes
-<img width="960" alt="Worker_Nodes_SG" src="https://github.com/user-attachments/assets/6b4ab1ab-8cce-4210-8a31-638fdda0a721" />
+![image](https://github.com/user-attachments/assets/0ec9d426-1d8a-4ecc-939c-4123e6c7add4)
+
 
 
 **2.** Login to 3 three instances using Git Bash
 
-![image](https://github.com/user-attachments/assets/c0996cb6-9fab-4412-bfbd-ee55530abe62)
+![image](https://github.com/user-attachments/assets/c78952d6-1712-4db9-91b9-182280b251c2)
+
 
 To determine which Git Bash belongs to which node, rename the servers.
 - In each server, Switch as a root user
@@ -26,7 +30,8 @@ To determine which Git Bash belongs to which node, rename the servers.
   ```sh
   nano /etc/hostname
 
-![image](https://github.com/user-attachments/assets/838fba96-292b-448d-8628-a59395cf4982)
+![image](https://github.com/user-attachments/assets/483ed208-458b-4459-8acf-dfd1c7b146bb)
+
 
 
 - Save the changes and reboot the servers
@@ -35,7 +40,9 @@ To determine which Git Bash belongs to which node, rename the servers.
 
 - Log into the instances again and you will realize that you can identify which Git bash belongs to which server
 
-![image](https://github.com/user-attachments/assets/3fe8d76f-7320-4d5f-b7fc-3155d307f949)
+![image](https://github.com/user-attachments/assets/39688edf-41b7-44f4-b26d-b9883681c79a)
+
+
 
 
 **3.** For all 3 servers create a common user called “ansible”, set a common password, and allow for “Password authentication”  using the following commands for all 3 servers.
